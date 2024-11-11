@@ -18,19 +18,3 @@ inputField.addEventListener('blur', function () {
         label.style.opacity = '1';
     }
 });
-
-// Typing effect for the "Please log in" text
-const typingText = document.querySelector('.typing-text');
-const text = "Please log in";
-let index = 0;
-
-function typeText() {
-    if (index < text.length) {
-        typingText.textContent += text.charAt(index);
-        index++;
-        setTimeout(typeText, 100); // Adjust typing speed by changing the delay (in milliseconds)
-    }
-}
-
-// Start the typing effect when the page loads
-document.addEventListener("DOMContentLoaded", typeText);
