@@ -18,8 +18,12 @@ $username = htmlspecialchars($_GET['username']);
 </head>
 <body>
     <div class="rgb-bar"></div>
-    <h1>Welcome <?php echo $username; ?>!</h1>
-    <p>You logged in successfully.</p>
+    <form action="./logout.php" method="post">
+        <h1>Welcome <?php echo $username; ?>!</h1>
+        <p>You logged in successfully.</p>
+        <button type="submit">Log out</button>
+    </form>
+    </div>
 </body>
 </html>
 

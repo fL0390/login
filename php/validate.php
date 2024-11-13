@@ -2,7 +2,7 @@
 session_start();
 
 $users = [
-    'user1' => 'password1'
+    'admin' => 'admin'
 ];
 
 $username = $_POST['username'];
