@@ -124,3 +124,12 @@ p {
     margin-bottom: 5%;
     text-align: center;
 }
+
+.error{
+    text-align: center;
+    color: red;
+}
+
+.warning{
+    font-size: 100px;
+}

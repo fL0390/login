@@ -13,7 +13,7 @@ if (isset($users[$username]) && $users[$username] === $password) {
     header("Location: ./welcome.php?username=" . $username);
     exit;
 } else {
-    header("Location: ./login.php?error=invalid_credentials");
+    header("Location: ./error.php");
     exit;
 }
 ?>
