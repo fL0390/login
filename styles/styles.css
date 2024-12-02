@@ -165,12 +165,13 @@ a:hover:after {
 .language-dropdown {
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 2%;
     transform: translateY(-50%);
     background-color: transparent;
     border-radius: 4px;
     overflow: hidden;
 }
+
 
 #language-select {
     font-size: 16px;
@@ -186,4 +187,16 @@ a:hover:after {
 #language-select option {
     font-size: 20px; 
     padding: 5px;
+}
+
+
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+#message {
+    animation: flash 1s infinite;
+    margin-top: 10px;
 }
