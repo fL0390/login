@@ -120,7 +120,35 @@ button[type="submit"]:focus {
     outline: none;
 }
 
-p {
+.register-button {
+    margin-bottom: 5%;
+    color: white;
+    font-size: small;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: white;
+    transition: width 0.3s;
+}
+
+a:hover:after {
+    width: 100%;
+}
+
+
+.error-text {
     margin-bottom: 5%;
     text-align: center;
 }
@@ -132,4 +160,30 @@ p {
 
 .warning{
     font-size: 100px;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#language-select {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    padding: 5px;
+    appearance: none; 
+    cursor: pointer;
+}
+
+#language-select option {
+    font-size: 20px; 
+    padding: 5px;
 }

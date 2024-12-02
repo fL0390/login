@@ -10,7 +10,7 @@
     <form action="./logout.php" method="post">
         <div class="error">
             <span class="warning">&#9888;</span> 
-            <p>Wrong username or password</p>
+            <p class="error-text">Wrong username or password</p>
         </div>
         <button type="submit">Return</button>
     </form>
