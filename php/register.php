@@ -4,17 +4,14 @@ include 'connection.php';
 $error = "";
 $success = false;
 
-// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['username'];
     $password = $_POST['password'];
     $language = $_POST['language'] ?? '';
 
-    // Validate language
     if (empty($language)) {
         $error = "Language selection is required.";
     } else {
-        // Check if username already exists
         $stmt = $conn->prepare("SELECT id FROM login WHERE name = ?");
         $stmt->bind_param("s", $name);
         $stmt->execute();
@@ -23,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->num_rows > 0) {
             $error = "Username already exists.";
         } else {
-            // Insert user into database
             $stmt->close();
             $hashed_password = password_hash($password, PASSWORD_BCRYPT);
             $stmt = $conn->prepare("INSERT INTO login (name, password, language) VALUES (?, ?, ?)");
@@ -59,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="login-box">
         <form method="POST" action="register.php">
             <div class="input-container">
-                <input type="text" name="username" id="username" class="input" placeholder=" " required>
+                <input type="text" name="username" id="username" class="input <?= $error == 'Username already exists.' ? 'error' : '' ?>" placeholder=" " required>
                 <label for="username" class="label">Username</label>
             </div>
             <div class="input-container">
@@ -70,18 +66,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p class="success-message">Registration successful!</p>
             <?php endif; ?>
             <div class="language-dropdown">
-                <select id="language-select" name="language" required>
+                <select id="language-select" name="language" class="<?= $error == 'Language selection is required.' ? 'error' : '' ?>" required>
                     <option disabled selected hidden>🌍 Select language</option>
                     <option value="en" <?= isset($language) && $language === 'en' ? 'selected' : '' ?>>🇬🇧 English</option>
                     <option value="es" <?= isset($language) && $language === 'es' ? 'selected' : '' ?>>🇪🇸 Español</option>
                     <option value="de" <?= isset($language) && $language === 'de' ? 'selected' : '' ?>>🇩🇪 Deutsche</option>
                 </select>
-                <?php if ($error == "Language selection is required."): ?>
-                    <span class="username-error">&#9888; <?= $error ?></span>
-                <?php endif; ?>
-                <?php if ($error == "Username already exists."): ?>
-                    <span class="username-error">&#9888; <?= $error ?></span>
-                <?php endif; ?>
             </div>
             <button type="submit">Register</button>
         </form>
