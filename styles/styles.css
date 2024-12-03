@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -147,7 +146,6 @@ a:hover:after {
     width: 100%;
 }
 
-
 .error-text {
     margin-bottom: 5%;
     text-align: center;
@@ -163,40 +161,33 @@ a:hover:after {
 }
 
 .language-dropdown {
-    position: absolute;
-    top: 50%;
-    right: 2%;
-    transform: translateY(-50%);
     background-color: transparent;
     border-radius: 4px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the left so it matches the size of the select box */
+    margin-bottom: 20px;
+    width: auto; /* Allow the dropdown to adapt to content size */
 }
 
-
 #language-select {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    background: transparent;
+    background-color: transparent;
     color: white;
-    padding: 5px;
-    appearance: none; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+    width: auto; /* Make sure it adapts to text size */
+    appearance: none;
+    outline: none;
     cursor: pointer;
 }
 
-#language-select option {
-    font-size: 20px; 
-    padding: 5px;
+.username-error {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #ff4d4d; /* Red color for error */
+    width: 100%; /* Ensures error message spans the width of the container */
 }
 
-
-@keyframes flash {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-#message {
-    animation: flash 1s infinite;
-    margin-top: 10px;
-}
